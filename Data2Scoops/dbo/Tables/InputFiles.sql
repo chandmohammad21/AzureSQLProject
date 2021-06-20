@@ -1,0 +1,9 @@
+﻿CREATE TABLE [dbo].[InputFiles]
+(
+	[FileId] INT NOT NULL,
+	[FileName] VARCHAR(255) NOT NULL,
+	[JobId] UNIQUEIDENTIFIER NOT NULL,
+	[StatusId] INT NOT NULL,
+	[LoadDateTime] DATETIME NOT NULL DEFAULT GETDATE(),
+	CONSTRAINT [Pk_InputFiles] PRIMARY KEY ([FileId] ASC, [FileName] ASC, [JobId] ASC, [StatusId] ASC)
+)

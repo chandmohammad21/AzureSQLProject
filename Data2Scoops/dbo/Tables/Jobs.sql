@@ -1,0 +1,16 @@
+﻿CREATE TABLE [dbo].[Jobs]
+(
+	[Id] INT IDENTITY(1,1) NOT NULL,
+	[JobId] UNIQUEIDENTIFIER NOT NULL,
+	[StatusId] INT NOT NULL,
+	[LoadDateTime] DATETIME NOT NULL DEFAULT GETDATE(),
+	CONSTRAINT [Pk_Jobs] PRIMARY KEY CLUSTERED
+	(
+		[JobId] ASC,
+		[StatusId] ASC
+	)
+)
+GO
+
+ALTER TABLE [dbo].[Jobs] WITH CHECK ADD CONSTRAINT [Fk_Jobs_Status] FOREIGN KEY ([StatusId]) REFERENCES [dbo].[Status]
+GO
